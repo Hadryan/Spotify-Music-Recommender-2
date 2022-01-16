@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Spotify Recommendation Model</title>
+
+    <!-- Boostrap Stylesheet -->
+    <link rel="stylesheet" href={{url_for('static', filename='css/bootstrap.min.css')}} media="screen">
+    <!-- Our own CSS stylesheet -->
+    <link rel="stylesheet" href={{url_for('static', filename='css/style.css')}} media="screen">
+    <!-- Our own JS stylesheet -->
+  </head>
+
+  <body>
+    <!-- Start of navbar -->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <img src="static/images/spotify.png" alt="" id="description-image" width="1000" />
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li class="active"><a href="/visualizations">Visualizations</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End of navbar -->
+
+    <!-- Start of container -->
+    <div class="container">
+      <section class="row">
+        <div class="col-md-18">
+          <article class="description-content">
+            <h1 class="description-header"> Spotify Recommendation Model</h1>
+            <hr class="description-hr"/>
+            <!-- <img src="assets/images/spotify2.jpg" alt="" id="description-image" width="500" height="600"/> -->
+            <p>The Spotify API has considered 10 primary characteristics by which every track in it's database can be analyzed. Below are the 10 musical characteristics that a listener may have specific preferences for. In addition to musical charcteristics, a timeframe for the year a track came out may also be selected.</p>
+            <p>Please input your musical track preferences and release date range to recieve a playlist generated specifically for you.</p>
+            <!-- <p>The data pulled from the Kaggle website and ETL process completed utilizing Python, Panda, and PostgreSQL. Visualization processed in Tableau. Also, ML has implemented for more detailed analysis.</p> -->
+        <!-- SLIDERS -->
+        <form method="POST" action="/createPlaylist">
+        <div class="slidecontainer">
+          <p>Select Danceability Preference</p>
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange" name="danceability">
+          <p><a>1 -------------------------------------------------------------------------------------------------------------------------------------------------------- 10</a></p>
+          <p>Select Energy Preference</p>
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange" name="energy">
+          <p><a>1 -------------------------------------------------------------------------------------------------------------------------------------------------------- 10</a></p>
+          <p>Select Loudness Preference</p>
+          <input type="range" min="-60" max="5" value="0" class="slider" id="myRange" name="loudness">
+          <p><a>-60 ------------------------------------------------------------------------------------------------------------------------------------------------------- 5</a></p>
+          <p>Select Mode Preference</p>
+          <input type="range" min="0" max="1" value="0.5" class="slider" id="myRange" name="mode">
+          <p><a>0 --------------------------------------------------------------------------------------------------------------------------------------------------------- 1</a></p>
+          <p>Select Speechiness Preference</p>
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange" name="speechiness">
+          <p><a>1 -------------------------------------------------------------------------------------------------------------------------------------------------------- 10</a></p>
+          <p>Select Acousticness Preference</p>
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange" name="acousticness">
+          <p><a>1 -------------------------------------------------------------------------------------------------------------------------------------------------------- 10</a></p>
+          <p>Select Instrumentalness Preference</p>
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange" name="instrumentalness">
+          <p><a>1 -------------------------------------------------------------------------------------------------------------------------------------------------------- 10</a></p>
+          <p>Select Liveness Preference</p>
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange" name="liveness">
+          <p><a>1 -------------------------------------------------------------------------------------------------------------------------------------------------------- 10</a></p>
+          <p>Select Valence Preference</p>
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange" name="valence">
+          <p><a>1 -------------------------------------------------------------------------------------------------------------------------------------------------------- 10</a></p>
+          <p>Select Tempo Preference</p>
+          <input type="range" min="0" max="246" value="100" class="slider" id="myRange" name="tempo">
+          <p><a>1 -------------------------------------------------------------------------------------------------------------------------------------------------------- 10</a></p>
+          <!-- <p>Select Release Date Preference</p>
+          <div slider id="slider-distance">
+            <div>
+              <div inverse-left style="width:70%;"></div>
+              <div inverse-right style="width:70%;"></div>
+              <div range style="left:30%;right:40%;"></div>
+              <span thumb style="left:30%;"></span>
+              <span thumb style="left:60%;"></span>
+              <div sign style="left:30%;">
+                <span id="value">2002</span>
+              </div>
+              <div sign style="left:60%;">
+                <span id="value">2008</span>
+              </div>
+            </div>
+            <input type="range" tabindex="0" value="1992" max="2021" min="1992" step="1" name="date_min">
+            <input type="range" tabindex="0" value="2021" max="2021" min="1992" step="1" name="date_max">
+          </div>  -->
+          <!-- <p><a>1992 ------------------------------------------------------------------------------------------------------------------------------------------------ 2021</a></p> -->
+        <input type="submit" value="Create Playlist" onclick="create_playlist()" class="button">
+        <!-- <button onclick="create_playlist()">Tests</button> -->
+        <!-- Playlist Display After Click -->
+        <div>
+          <h3 class="description-header"> Recommended Playlist</h3>
+        <div>
+          <!-- Playlist Table -->
+          <table class="table">
+            <tr class="table__header">
+              {% for header in headings %}
+              <th class="table__cell"> {{ header }}</th>
+              {% endfor %}
+            </tr>
+            {% for row in data %}
+            <tr class="table__row">
+            {% for cell in row%}
+            <td class="table__cell">{{ cell }}</td>
+            {% endfor %}
+          </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+        </form>
+          <!-- </section> -->
+        <!-- </div> -->
+      </section>
+    </article>
+  </div>
+    <!-- </div> -->
+    <!-- End of container -->
+
+    <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+      <div class="two-toned-footer-color"></div>
+      <p class="text-muted text-muted-footer text-center">
+        USC Viterbi Bootcamp 2021
+      </p>
+    </footer>
+    <!-- End of footer -->
+
+    <!-- jQuery CDN -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </body>
+
+</html>

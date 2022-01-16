@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title> Visualization Dashboard</title>
+
+  <!-- Boostrap Stylesheet -->
+  <link rel="stylesheet" href={{url_for('static', filename='css/bootstrap.min.css')}} media="screen">
+    
+  <!-- Our own CSS stylesheet -->
+  <link rel="stylesheet" href={{url_for('static', filename='css/style.css')}} media="screen">
+
+  </head>
+
+  <body>
+    <!-- Start of navbar -->
+ <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <img src="static/images/spotify.png" alt="" id="description-image" width="1000" />
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li class="active"><a href="visualizations.html">Visualizations</a></li>
+        </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- End of navbar -->
+
+    <!-- Start of container -->
+    <div class="container">
+      <section class="row">
+        <div class="col-md-18">
+          <article class="description-content">
+            <h1 class="description-header">Visualizations</h1>
+            <hr class="description-hr"/>
+            <p>Number of Tracks per Genre by Decade</p>
+            <img src="../static/images/Genre by decade.png" alt="" class="img-responsive"/>
+            <p>Number of Tracks Released per Decade</p>
+            <img src="../static/images/Tracks by Decade.png" alt="" class="img-responsive"/>
+            <p>Average Musical Characteristics per Genre</p>
+            <img src="../static/images/Music_Metrics.png" alt="" class="img-responsive"/>
+            <p>Correlation Coefficient between all 10 Musical Characteristics</p>
+            <img src="../static/images/ML_fig1.png" alt="" class="img-responsive"/>
+          </article>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </section>
+    </div>
+    <!-- End of container -->
+
+    <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+      <div class="two-toned-footer-color"></div>
+      <p class="text-muted text-muted-footer text-center">
+        USC Viterbi Data Bootcamp 2021
+      </p>
+    </footer>
+    <!-- End of footer -->
+
+    <!-- jQuery CDN -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </body>
+
+</html>
