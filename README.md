@@ -1,5 +1,6 @@
 # Spotify Music Recommender --- Machine Learning Analysis with Data Visualizations
-Website: [tracks data from Kaggle (Spotify API)](https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks?select=artists.csv)
+Heroku Deployed App: [Spotify Music Recommender App](https://music-recommender-spotify.herokuapp.com/)
+Data Source: [tracks data from Kaggle (Spotify API)](https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks?select=artists.csv)
 
 
 ## SUBJECT OF MACHINE LEARNING BREAKDOWN
