@@ -8,8 +8,8 @@ After cleaning and the data, the data was preprocessed and feature engineered wh
 
 ## MAIN OBJECTIVES
 <ul>
-    <li>To utilize Spotify Data to produce data visualizations of music, tracks, genres, and metrics using Python, Flask, HTML/CSS</li>
-    <li>To create a dashboard in Tableau with some level of user-driven interaction to dusplay high level summary of Tracks Data</li>
+    <li>To utilize Spotify Data from the Spotify API to produce data visualizations of music, tracks, genres, and metrics using Python, Flask, HTML/CSS</li>
+    <li>Use Machine Learning to produce a playlist of recommendeds song for the user determined by the user's input for all music preferences.</li>
 </ul>
 <hr>
 
