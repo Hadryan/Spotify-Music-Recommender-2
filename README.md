@@ -30,6 +30,7 @@ After cleaning and the data, the data was preprocessed and feature engineered wh
     <li>Postgresql</li>
     <li>Bootstrap</li>
     <li>Jupyter</li>
+    <li>Jinja2</li>
 </ul>
 
 ## VISUALIZATIONS
